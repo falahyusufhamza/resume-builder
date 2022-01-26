@@ -4,13 +4,19 @@ import ResumeForm from './pages/ResumeForm/ResumeForm';
 import Header from './components/Header';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Footer from './components/Footer';
+import { useContext, useState } from 'react';
+import ThemeContext from './theme/ThemeContext';
+import Theme from './theme/theme';
 
 
 function App() {
+  const themeContext = useContext(ThemeContext)
+  const [theme ,setTheme] = useState('default');
   return (
     <div style={{height : '100vh', width : '100vw'}}>
+      <ThemeContext.Provider value={{theme,setTheme}}>
       <Header/>
-      <div style={{padding : 5,height : '90%',backgroundColor : '#c1c2c1'}}>
+      <div style={{paddingLeft : 5,paddingRight : 5,height : '90%',backgroundColor : Theme[themeContext.theme].lightColor}}>
       <Route
           exact
           path="/build-resume"
@@ -23,7 +29,9 @@ function App() {
         />
       </div>
       
-      <Footer/>      
+      {/* <Footer/>     */}
+      </ThemeContext.Provider>
+        
     </div>
   );
 }
