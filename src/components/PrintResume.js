@@ -1,15 +1,15 @@
 import React, { Fragment, useContext } from 'react';
 import { Badge, Card, Col, ListGroup, Row } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
-import Theme from '../../theme/theme';
-import ThemeContext from '../../theme/ThemeContext';
-import userImage from '../../assets/user.png'
-import styles from './ViewResumeComponent.module.css'
-function ViewResumeComponent(props) {
+import Theme from '../theme/theme';
+import ThemeContext from '../theme/ThemeContext';
+import userImage from '../assets/user.png'
+import styles from './PrintResume.module.css'
+function PrintResume(props) {
   const themeContext = useContext(ThemeContext);
   const userState = useSelector(state => state.userReducer);
   const {firstName , lastName, email, phoneNo, state, country} = userState.personal;
-  return <div ref={props.componentRef} style={{ height :'297mm', width : '210mm',backgroundColor : 'white',borderRadius : 5,padding : 0 }} >
+  return <div ref={props.componentRef} style={{height : '16.27in',width : '100%',backgroundColor : 'white',borderRadius : 5,padding : 0 }} >
     <Card  style={{width  : '100%', height : '100%'}}>
     <Card.Body style={{padding : 0,margin : 0}}>
     <Row style={{height: '100%', width : '100%',padding : 10,margin :0,borderRadius : 5}}>
@@ -95,4 +95,4 @@ function ViewResumeComponent(props) {
   </div>
 }
 
-export default ViewResumeComponent;
+export default PrintResume;

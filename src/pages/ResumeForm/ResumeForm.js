@@ -11,10 +11,12 @@ import { useHistory } from 'react-router-dom'
 import SkillsForm from '../../components/ResumeForm/Skills';
 import SummaryForm from '../../components/ResumeForm/SummaryForm';
 
-function ResumeForm() {
+function ResumeForm(props) {
+    const {stage} = props;
     const history = useHistory();
     const userState = useSelector(state => state.userReducer);
     const dispatch = useDispatch();
+    const [error , setError] = useState(false);
     const [activeBreadCrumb , setActiveBreadCrumb] = useState('Personal')
     const themeContext = useContext(ThemeContext);
     const [summary, setSummary] = useState();
@@ -45,6 +47,9 @@ function ResumeForm() {
             state :''
     })
 
+    useEffect(() => {
+        stage ? setActiveBreadCrumb(stage) : setActiveBreadCrumb('Personal')
+    },[stage])
 
     useEffect(() => {
         setPersonalData(userState.personal)
@@ -56,10 +61,16 @@ function ResumeForm() {
 
     const personalSubmitHandler = (event) => {
         event.preventDefault();
-        dispatch(userActions.updatePersonalData({
-            personal : personalData
-        }))
-        setActiveBreadCrumb('Education')
+        if(personalData.firstName.trim() && personalData.lastName.trim() && personalData.phoneNo.trim()){
+            setError(false)
+            dispatch(userActions.updatePersonalData({
+                personal : personalData
+            }))
+            setActiveBreadCrumb('Education')
+        }
+        else{
+            setError('Fill all mandatory fields!')
+        }
     }
 
     const educationSubmitHandler = (event) => {
@@ -118,11 +129,11 @@ function ResumeForm() {
   </Breadcrumb.Item>
 </Breadcrumb>
 
-            { activeBreadCrumb === 'Personal' && <PersonalForm  data={personalData} setData={setPersonalData} submitHandler={personalSubmitHandler} />}
-            { activeBreadCrumb === 'Education' && <EducationForm  data={educationData} setData={setEducationData} submitHandler={educationSubmitHandler} setActiveBreadCrumb={setActiveBreadCrumb}  />}
-            { activeBreadCrumb === 'Work' && <WorkForm  data={workData} setData={setWorkData} submitHandler={workSubmitHandler} setActiveBreadCrumb={setActiveBreadCrumb}  />}
-            { activeBreadCrumb === 'Skills' && <SkillsForm  tags={tags} setTags={setTags} submitHandler={skillsSubmitHandler} setActiveBreadCrumb={setActiveBreadCrumb}  />}
-            { activeBreadCrumb === 'Summary' && <SummaryForm  summary={summary} setSummary={setSummary} submitHandler={summarySubmitHandler} setActiveBreadCrumb={setActiveBreadCrumb}  />}
+            { activeBreadCrumb === 'Personal' && <PersonalForm  data={personalData} setData={setPersonalData} error={error} submitHandler={personalSubmitHandler} />}
+            { activeBreadCrumb === 'Education' && <EducationForm  data={educationData} setData={setEducationData} error={error} submitHandler={educationSubmitHandler} setActiveBreadCrumb={setActiveBreadCrumb}  />}
+            { activeBreadCrumb === 'Work' && <WorkForm  data={workData} setData={setWorkData} error={error} submitHandler={workSubmitHandler} setActiveBreadCrumb={setActiveBreadCrumb}  />}
+            { activeBreadCrumb === 'Skills' && <SkillsForm  tags={tags} setTags={setTags} error={error} submitHandler={skillsSubmitHandler} setActiveBreadCrumb={setActiveBreadCrumb}  />}
+            { activeBreadCrumb === 'Summary' && <SummaryForm  summary={summary} setSummary={setSummary} error={error} submitHandler={summarySubmitHandler} setActiveBreadCrumb={setActiveBreadCrumb}  />}
 
           </Col>
       </Row>

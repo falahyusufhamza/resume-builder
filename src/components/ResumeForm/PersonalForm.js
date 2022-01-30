@@ -1,21 +1,24 @@
 import React, { useContext } from 'react';
-import { Button, Card, Col, Form } from 'react-bootstrap';
+import { Alert, Button, Card, Col, Form } from 'react-bootstrap';
 import Theme from '../../theme/theme';
 import ThemeContext from '../../theme/ThemeContext';
 
 let PersonalForm = (props) => {
     const themeContext = useContext(ThemeContext)
-    const {submitHandler,data, setData} = props
+    const {submitHandler,data, setData, error} = props
 
     const formInput = {backgroundColor : Theme[themeContext.theme].lightColor}
     const formLabel = {color : Theme[themeContext.theme].lightColor}
 
   return <Form onSubmit={(event) => submitHandler(event)}>
+      {error && <Alert variant='danger' >
+        {error}
+      </Alert>}
       <Card style={{backgroundColor : Theme[themeContext.theme].primaryLight, padding : 10}}>
             <Card.Header style={{color : Theme[themeContext.theme].lightColor}} as="h5">Enter your details</Card.Header>
 <Form.Row>
 <Form.Group as={Col} controlId="formGridFirstName">
-<Form.Label style={formLabel} >First Name</Form.Label>
+<Form.Label style={formLabel} >First Name <span style={{color :'red'}} >*</span></Form.Label>
 <Form.Control maxLength={20} style={formInput}required value={data.firstName} onChange={(event) => setData({
     ...data,
     firstName : event.target.value
@@ -23,7 +26,7 @@ let PersonalForm = (props) => {
 </Form.Group>
 
 <Form.Group as={Col} controlId="formGridLastName">
-<Form.Label style={formLabel}>Last Name</Form.Label>
+<Form.Label style={formLabel}>Last Name <span style={{color :'red'}} >*</span></Form.Label>
 <Form.Control maxLength={20} style={formInput}value={data.lastName} onChange={(event) => setData({
     ...data,
     lastName : event.target.value
@@ -34,7 +37,7 @@ let PersonalForm = (props) => {
 <Form.Row>
 
 <Form.Group as={Col} controlId="formGridEmail">
-<Form.Label style={formLabel}>Email</Form.Label>
+<Form.Label style={formLabel}>Email <span style={{color :'red'}} >*</span></Form.Label>
 <Form.Control style={formInput}type='email' value={data.email} onChange={(event) => setData({
     ...data,
     email : event.target.value
@@ -42,7 +45,7 @@ let PersonalForm = (props) => {
 </Form.Group>
 
 <Form.Group as={Col} controlId="formGridPhone">
-<Form.Label style={formLabel}>Phone Number</Form.Label>
+<Form.Label style={formLabel}>Phone Number <span style={{color :'red'}} >*</span></Form.Label>
 <Form.Control maxLength={10}  style={formInput}type='number' value={data.phoneNo} onChange={(event) => setData({
     ...data,
     phoneNo : event.target.value

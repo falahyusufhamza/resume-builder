@@ -8,6 +8,7 @@ import { useContext, useState } from 'react';
 import ThemeContext from './theme/ThemeContext';
 import Theme from './theme/theme';
 import ViewResume from './pages/ViewResume';
+import PrintResume from './components/PrintResume';
 
 
 function App() {
@@ -34,10 +35,9 @@ function App() {
           path={'/'}
           render={() => <Redirect to='/build-resume' />}
         />
+        
       </div>
-      
-      {/* <Footer/>     */}
-      </ThemeContext.Provider>
+            </ThemeContext.Provider>
      
         
     </div>

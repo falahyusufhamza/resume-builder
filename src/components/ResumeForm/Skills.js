@@ -17,6 +17,32 @@ let SkillsForm = (props) => {
     const themeContext = useContext(ThemeContext)
     const {submitHandler,tags, setTags, setActiveBreadCrumb} = props  
     
+    const suggestions = [
+      {
+        id : 'javascript',
+        label : 'javascript'
+      },
+      {
+        id : 'ReactJS',
+        label : 'ReactJS'
+      },
+      {
+        id : 'PHP',
+        label : 'PHP'
+      },
+      {
+        id : 'Angular',
+        label : 'Angular'
+      },
+      {
+        id : 'HTML',
+        label : 'HTML'
+      }
+      ,{
+        id : 'CSS',
+        label : 'CSS'
+      }
+    ]
       const handleDelete = i => {
         setTags(tags.filter((tag, index) => index !== i));
       };
@@ -44,7 +70,7 @@ let SkillsForm = (props) => {
             <Card.Header style={{color : Theme[themeContext.theme].lightColor}} as="h5">Add your Skills</Card.Header>
             <ReactTags
           tags={tags}
-          suggestions={[]}
+          suggestions={suggestions}
           delimiters={delimiters}
           handleDelete={handleDelete}
           handleAddition={handleAddition}

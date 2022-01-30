@@ -2,14 +2,13 @@
   "name": "resume-builder",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://falahyusufhamza.github.io",
   "dependencies": {
+    "@react-pdf/renderer": "^2.1.1",
     "@reduxjs/toolkit": "^1.7.1",
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
     "bootstrap": "^4.6.0",
-    "moment": "^2.29.1",
     "node-sass": "^7.0.1",
     "react": "^17.0.2",
     "react-bootstrap": "^1.6.4",
@@ -21,16 +20,13 @@
     "react-scripts": "5.0.0",
     "react-tag-input": "^6.8.0",
     "react-to-print": "^2.14.4",
-    "redux-form": "^8.3.8",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [

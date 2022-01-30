@@ -1,4 +1,3 @@
-import moment from 'moment';
 import React, { Fragment, useContext, useEffect, useState } from 'react';
 import { Alert, Button, Card, Col, Form } from 'react-bootstrap';
 import Theme from '../../theme/theme';
@@ -16,6 +15,13 @@ let WorkForm = (props) => {
             if( item.fromDate > item.toDate ){
                 flag = true;
                 setError('From date greater than to date!')
+            }
+        })
+        data.forEach(item => {
+            console.log(item.company.trim(),item.designation.trim());
+            if(item.company.trim() === ''  || item.designation.trim() ===  ''){
+                flag = true;
+                setError('Fill all mandatory fields!')
             }
         })
         if(!flag){
@@ -62,7 +68,7 @@ let WorkForm = (props) => {
         <Form.Row>
             
         <Form.Group as={Col}>
-        <Form.Label style={formLabel} >Company</Form.Label>
+        <Form.Label style={formLabel} >Company <span style={{color :'red'}} >*</span></Form.Label>
         <Form.Control style={formInput}required value={data[data.findIndex(x => x.id === item.id)]?.company} onChange={(event) => setData((prevState) => {
             let index = prevState.findIndex(x => x.id === item.id);
             return [
@@ -73,7 +79,7 @@ let WorkForm = (props) => {
         }) } placeholder="Company" />
         </Form.Group>
         <Form.Group as={Col}>
-        <Form.Label style={formLabel} >Designation</Form.Label>
+        <Form.Label style={formLabel} >Designation <span style={{color :'red'}} >*</span></Form.Label>
         <Form.Control style={formInput}required value={data[data.findIndex(x => x.id === item.id)]?.designation} onChange={(event) => setData((prevState) => {
             let index = prevState.findIndex(x => x.id === item.id);
             return [
@@ -88,7 +94,7 @@ let WorkForm = (props) => {
         </Form.Row>
         <Form.Row>
         <Form.Group as={Col}>
-        <Form.Label style={formLabel} >From</Form.Label>
+        <Form.Label style={formLabel} >From <span style={{color :'red'}} >*</span></Form.Label>
         <Form.Control style={formInput}required value={data[data.findIndex(x => x.id === item.id)]?.fromDate} onChange={(event) => setData((prevState) => {
             let index = prevState.findIndex(x => x.id === item.id);
             return [
@@ -99,7 +105,7 @@ let WorkForm = (props) => {
         }) } type='month' placeholder="From" />
         </Form.Group>
         <Form.Group as={Col}>
-        <Form.Label style={formLabel} >To</Form.Label>
+        <Form.Label style={formLabel} >To <span style={{color :'red'}} >*</span></Form.Label>
         <Form.Control style={formInput}required value={data[data.findIndex(x => x.id === item.id)]?.toDate} onChange={(event) => setData((prevState) => {
             let index = prevState.findIndex(x => x.id === item.id);
             return [

@@ -1,5 +1,4 @@
 import { createSlice,  configureStore } from '@reduxjs/toolkit'
-import {reducer as formReducer} from 'redux-form'
 
 const userInitialState = {
     personal : {
@@ -61,8 +60,7 @@ const userSlice = createSlice({
 export const userActions = userSlice.actions;
 
 const store = configureStore({reducer : {
-    userReducer : userSlice.reducer,
-    formReducer : formReducer
+    userReducer : userSlice.reducer
 }
 })
 
