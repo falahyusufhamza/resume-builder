@@ -2,6 +2,7 @@
   "name": "resume-builder",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://falahyusufhamza.github.io",
   "dependencies": {
     "@reduxjs/toolkit": "^1.7.1",
     "@testing-library/jest-dom": "^5.16.1",
@@ -46,5 +47,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "predeploy": "npm run build",
+  "deploy": "gh-pages -d build",
+  "devDependencies": {
+    "gh-pages": "^3.2.3"
   }
 }
