@@ -4,14 +4,14 @@ const Theme = {
         secondary: '#596359',
         primaryDark: '#007873',
         secondaryDark: '#303930',
-        primaryLight: '#5edad2',
+        primaryLight: 'rgb(30 181 171)',
         secondaryLight: '#869086',
         darkColor: '#000000',
         lightColor: '#ffffff',
         bgColor : '#ffffff'
       },
       dark: {
-        primary: '#141a32',
+        primary: '#182039',
         secondary: '#3e65fb',
         primaryDark: '#007873',
         secondaryDark: '#303930',
@@ -19,7 +19,7 @@ const Theme = {
         secondaryLight: '#809cf5',
         darkColor: '#000000',
         lightColor: '#d2d2d7',
-        bgColor : '#141a32'
+        bgColor : '#1e2745'
       },
 }
 
