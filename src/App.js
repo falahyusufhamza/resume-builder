@@ -7,20 +7,27 @@ import Footer from './components/Footer';
 import { useContext, useState } from 'react';
 import ThemeContext from './theme/ThemeContext';
 import Theme from './theme/theme';
+import ViewResume from './pages/ViewResume';
 
 
 function App() {
   const themeContext = useContext(ThemeContext)
-  const [theme ,setTheme] = useState('default');
+  const [theme ,setTheme] = useState('dark');
   return (
     <div style={{height : '100vh', width : '100vw'}}>
+      
       <ThemeContext.Provider value={{theme,setTheme}}>
       <Header/>
-      <div style={{paddingLeft : 5,paddingRight : 5,height : '90%',backgroundColor : Theme[themeContext.theme].lightColor}}>
+      <div style={{height : '100vh',paddingTop : '10vh',width : '100%',backgroundColor : Theme[themeContext.theme].bgColor}}>
       <Route
           exact
           path="/build-resume"
           component={ResumeForm}
+        />
+        <Route
+          exact
+          path={'/view-resume'}
+          component={ViewResume}
         />
         <Route
           exact
@@ -31,6 +38,7 @@ function App() {
       
       {/* <Footer/>     */}
       </ThemeContext.Provider>
+     
         
     </div>
   );
