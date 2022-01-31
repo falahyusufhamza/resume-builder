@@ -3,12 +3,10 @@ import {Redirect, Route} from 'react-router-dom'
 import ResumeForm from './pages/ResumeForm/ResumeForm';
 import Header from './components/Header';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Footer from './components/Footer';
 import { useContext, useState } from 'react';
 import ThemeContext from './theme/ThemeContext';
 import Theme from './theme/theme';
 import ViewResume from './pages/ViewResume';
-import PrintResume from './components/PrintResume';
 import Templates from './pages/Templates';
 
 

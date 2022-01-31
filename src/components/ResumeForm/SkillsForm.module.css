@@ -1,12 +1,34 @@
-.ReactTags :global {
+    /* Example Styles for React Tags*/ 
     /* Example Styles for React Tags*/
-    .app {
-      padding: 40px;
-      text-align: center;
-    }
-  
-    /* Example Styles for React Tags*/
-  
+
+
+  .tagClass{
+    background-color:  #c1c2c1;
+    padding: 5px;
+    margin: 10px;
+    border-radius: 10px;
+    padding-left: 10px;
+  }
+
+  .removeClass{
+    border-radius: 10px;
+    color: #f88d8d;
+    padding:  0;
+    height:  0px;
+    border: none;
+    margin-left: 10px;
+    margin-right: 5px;
+  }
+
+  .tagInputFieldClass:focus{
+    outline: none !important;
+  }
+
+
+  .activeSuggestionClass{
+    list-style-type: none !important;
+  }
+
     .container {
       margin: auto;
       width: 50%;
@@ -101,5 +123,5 @@
       background: none;
       color: white;
     }
-  }
+
   

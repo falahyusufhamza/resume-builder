@@ -13,7 +13,6 @@ import SummaryForm from '../../components/ResumeForm/SummaryForm';
 
 
 function ResumeForm(props) {
-    const {stage} = props;
     const history = useHistory();
     const userState = useSelector(state => state.userReducer);
     const dispatch = useDispatch();
@@ -48,9 +47,9 @@ function ResumeForm(props) {
             state :''
     })
 
-    useEffect(() => {
-        stage ? setActiveBreadCrumb(stage) : setActiveBreadCrumb('Personal')
-    },[stage])
+    // useEffect(() => {
+    //     stage ? setActiveBreadCrumb(stage) : setActiveBreadCrumb('Personal')
+    // },[stage])
 
     useEffect(() => {
         setPersonalData(userState.personal)

@@ -3,6 +3,7 @@ import { Button, Card, Col, Form } from 'react-bootstrap';
 import Theme from '../../theme/theme';
 import ThemeContext from '../../theme/ThemeContext';
 import { WithContext as ReactTags }  from 'react-tag-input'
+import styles from './SkillsForm.module.css'
 
 
 
@@ -66,10 +67,20 @@ let SkillsForm = (props) => {
       };
 
   return <Form onSubmit={(event) => submitHandler(event)}>
-      <Card style={{backgroundColor : Theme[themeContext.theme].primaryLight, padding : 10}}>
+      <Card style={{backgroundColor : Theme[themeContext.theme].primaryLight, padding : 10,textAlign : 'center',display : 'flex', justifyContent : 'center'}}>
             <Card.Header style={{color : Theme[themeContext.theme].lightColor}} as="h5">Add your Skills</Card.Header>
             <ReactTags
           tags={tags}
+          classNames={{
+            tags: styles.tagsClass,
+            tagInput: styles.tagInputClass,
+            tagInputField: styles.tagInputFieldClass,
+            selected: styles.selectedClass,
+            tag: styles.tagClass,
+            remove: styles.removeClass,
+            suggestions: styles.suggestionsClass,
+            activeSuggestion: styles.activeSuggestionClass
+          }}
           suggestions={suggestions}
           delimiters={delimiters}
           handleDelete={handleDelete}
@@ -88,7 +99,6 @@ let SkillsForm = (props) => {
                       border : '0px',
                       marginTop : 10,
                       marginBottom : 10,
-                      backgroundColor : Theme[themeContext.theme].lightColor
                   }
           }}
           labelField='label'

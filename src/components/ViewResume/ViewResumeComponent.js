@@ -27,7 +27,7 @@ function ViewResumeComponent(props) {
 
     <div style={{height : '10%',width : '100%',marginBottom : 5}}>
     <p className={styles.subHeading} >Experience</p>
-      {userState.work.map(item => <Fragment>
+      {userState.work.map(item => <Fragment key={item.id}>
         <ListGroup as="ul">
   <ListGroup.Item
     as="li"
@@ -47,7 +47,7 @@ function ViewResumeComponent(props) {
     </div>
     <div style={{height : '10%',width : '100%',marginBottom : 5}}>
       <p className={styles.subHeading} >Education</p>
-      {userState.education.map(item =><Fragment>
+      {userState.education.map(item =><Fragment key={item.id}>
         <ListGroup >
   <ListGroup.Item
     key={item.id}
@@ -84,8 +84,8 @@ function ViewResumeComponent(props) {
     </div>
     <div style={{width: '100%'}}>
       <p className={styles.subHeading}>Skills</p>
-      {userState.skills.map(item => <Fragment>
-        <p key={item.label} >{item.label}</p>
+      {userState.skills.map(item => <Fragment key={item.label}>
+        <p  >{item.label}</p>
       </Fragment> )}
     </div>
     </Col>

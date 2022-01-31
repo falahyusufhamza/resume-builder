@@ -15,9 +15,9 @@ function Header() {
   <Navbar.Toggle aria-controls="basic-navbar-nav" />
   <Navbar.Collapse id="basic-navbar-nav">
     <Nav style={{zIndex : 100}} className="mr-auto">
-      <Nav.Link style={{color : location.pathname === '/build-resume' ? Theme[themeContext.theme].secondaryLight :  Theme[themeContext.theme].lightColor}} onClick={() => history.replace('/build-resume')}>Build Resume</Nav.Link>
-     {userState.personal.firstName && <Nav.Link style={{color : location.pathname === '/view-resume' ? Theme[themeContext.theme].secondaryLight :   Theme[themeContext.theme].lightColor}} onClick={() => history.replace("/view-resume")}>View Resume</Nav.Link>}
-      <Nav.Link style={{color : location.pathname === '/templates' ? Theme[themeContext.theme].secondaryLight :  Theme[themeContext.theme].lightColor}} onClick={() => history.replace("/templates")}>Templates</Nav.Link>
+      <Nav.Link style={{color : location.pathname === '/build-resume' ? Theme[themeContext.theme].secondary :  Theme[themeContext.theme].lightColor}} onClick={() => history.replace('/build-resume')}>Build Resume</Nav.Link>
+     {userState.personal.firstName && <Nav.Link style={{color : location.pathname === '/view-resume' ? Theme[themeContext.theme].secondary :   Theme[themeContext.theme].lightColor}} onClick={() => history.replace("/view-resume")}>View Resume</Nav.Link>}
+      <Nav.Link style={{color : location.pathname === '/templates' ? Theme[themeContext.theme].secondary :  Theme[themeContext.theme].lightColor}} onClick={() => history.replace("/templates")}>Templates</Nav.Link>
     </Nav>
     <Form inline>
       <Button style={{color :  Theme[themeContext.theme].lightColor,backgroundColor : Theme[themeContext.theme].secondary,borderColor : Theme[themeContext.theme].lightColor}}   onClick={() =>  themeContext.setTheme( themeContext.theme === 'default' ? 'dark' : 'default' )}>Switch Theme</Button>

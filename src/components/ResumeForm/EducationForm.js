@@ -68,7 +68,7 @@ let EducationForm = (props) => {
             
         <Form.Group as={Col}>
         <Form.Label style={formLabel} >Institute <span style={{color :'red'}} >*</span></Form.Label>
-        <Form.Control style={formInput}required value={ data[data.findIndex(x => x.id === item.id)]?.institute} onChange={(event) => setData((prevState) => {
+        <Form.Control autoFocus style={formInput}required value={ data[data.findIndex(x => x.id === item.id)]?.institute} onChange={(event) => setData((prevState) => {
             let index = prevState.findIndex(x => x.id === item.id);
             return [
                 ...prevState.slice(0, index),
