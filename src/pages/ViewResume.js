@@ -36,14 +36,18 @@ function ViewResume() {
 
   return <div style={{width : '100%',paddingTop : '10px',display : 'flex',justifyContent : 'center',backgroundColor : Theme[themeContext.theme].bgColor,overflowX : 'clip'}}>
       
-        <ViewResumeComponent template={templateState} componentRef={componentRef}/>
-        <span>
-      <ButtonGroup>
-      <Button onClick={clearData}><FontAwesomeIcon icon={faTrash} /></Button>
+      <div style={{display : 'block'}} >
+        <div style={{width : '100%',textAlign : 'right'}}>
+        <Button onClick={clearData}><FontAwesomeIcon icon={faTrash} /></Button>
       <Button onClick={handlePrint}><FontAwesomeIcon icon={faPrint} /></Button>
       <Button onClick={() => history.replace('/build-resume')}><FontAwesomeIcon icon={faEdit} /></Button>
-      </ButtonGroup>
-      </span>
+        </div>
+      
+      <ViewResumeComponent template={templateState} componentRef={componentRef}/>
+      </div>
+
+        
+
       </div>
 }
 

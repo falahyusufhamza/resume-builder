@@ -1,7 +1,7 @@
 import { createSlice,  configureStore } from '@reduxjs/toolkit'
 
 const template = {
-    template : 'default'
+    template : 'templateTwo'
 };
 const userInitialState = {
     personal : {
