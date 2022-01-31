@@ -111,20 +111,20 @@ function ResumeForm(props) {
      
       <Row style={{width : '100%',justifyContent:  'center'}}>
           <Col sm={12} lg={6} style={{textAlign : 'center'}} >
-          <Breadcrumb>
-  <Breadcrumb.Item  active={activeBreadCrumb === 'Personal'}>
+          <Breadcrumb >
+  <Breadcrumb.Item linkAs={'span'}  active={activeBreadCrumb === 'Personal'}>
       <span style={{ color : activeBreadCrumb === 'Personal' ? Theme[themeContext.theme].primary : Theme[themeContext.theme].secondary, fontWeight : activeBreadCrumb === 'Personal' && 500 }}>Personal</span>
   </Breadcrumb.Item>
-  <Breadcrumb.Item  active={activeBreadCrumb === 'Education'} >
+  <Breadcrumb.Item linkAs={'span'} active={activeBreadCrumb === 'Education'} >
       <span style={{ color : activeBreadCrumb === 'Education' ? Theme[themeContext.theme].primary: Theme[themeContext.theme].secondary, fontWeight : activeBreadCrumb === 'Education' && 500  }}>Education</span> 
   </Breadcrumb.Item>
-  <Breadcrumb.Item  >
+  <Breadcrumb.Item linkAs={'span'}  >
      <span  style={{ color : activeBreadCrumb === 'Work'? Theme[themeContext.theme].primary : Theme[themeContext.theme].secondary , fontWeight : activeBreadCrumb === 'Work' && 500  }} >Work</span> 
   </Breadcrumb.Item>
-  <Breadcrumb.Item  >
+  <Breadcrumb.Item linkAs={'span'}  >
      <span  style={{ color : activeBreadCrumb === 'Skills'? Theme[themeContext.theme].primary : Theme[themeContext.theme].secondary , fontWeight : activeBreadCrumb === 'Skills' && 500  }} >Skills</span> 
   </Breadcrumb.Item>
-  <Breadcrumb.Item  >
+  <Breadcrumb.Item linkAs={'span'}  >
      <span  style={{ color : activeBreadCrumb === 'Summary'? Theme[themeContext.theme].primary : Theme[themeContext.theme].secondary , fontWeight : activeBreadCrumb === 'Summary' && 500  }} >Summary</span> 
   </Breadcrumb.Item>
 </Breadcrumb>
