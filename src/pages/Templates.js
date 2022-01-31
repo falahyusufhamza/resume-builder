@@ -4,7 +4,7 @@ import Theme from '../theme/theme';
 import ThemeContext from '../theme/ThemeContext';
 import defaultTemplate from '../assets/Default-template.png'
 import { useDispatch, useSelector } from 'react-redux';
-import {templateActions,userActions} from '../store/store'
+import {templateActions} from '../store/store'
 import { useHistory } from 'react-router-dom';
 
 function Templates() {
