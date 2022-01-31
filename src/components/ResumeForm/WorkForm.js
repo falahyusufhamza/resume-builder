@@ -38,7 +38,6 @@ let WorkForm = (props) => {
 
         const addField = () => {
             let arr = [...data];
-            console.log(arr);
            arr.push({
                id : Math.random() ,
                institute : '',   
@@ -69,7 +68,7 @@ let WorkForm = (props) => {
             
         <Form.Group as={Col}>
         <Form.Label style={formLabel} >Company <span style={{color :'red'}} >*</span></Form.Label>
-        <Form.Control style={formInput}required value={data[data.findIndex(x => x.id === item.id)]?.company} onChange={(event) => setData((prevState) => {
+        <Form.Control autoFocus style={formInput}required value={data[data.findIndex(x => x.id === item.id)]?.company} onChange={(event) => setData((prevState) => {
             let index = prevState.findIndex(x => x.id === item.id);
             return [
                 ...prevState.slice(0, index),

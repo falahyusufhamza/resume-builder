@@ -11,6 +11,7 @@ import { useHistory } from 'react-router-dom'
 import SkillsForm from '../../components/ResumeForm/Skills';
 import SummaryForm from '../../components/ResumeForm/SummaryForm';
 
+
 function ResumeForm(props) {
     const {stage} = props;
     const history = useHistory();
@@ -128,7 +129,6 @@ function ResumeForm(props) {
      <span  style={{ color : activeBreadCrumb === 'Summary'? Theme[themeContext.theme].primary : Theme[themeContext.theme].secondary , fontWeight : activeBreadCrumb === 'Summary' && 500  }} >Summary</span> 
   </Breadcrumb.Item>
 </Breadcrumb>
-
             { activeBreadCrumb === 'Personal' && <PersonalForm  data={personalData} setData={setPersonalData} error={error} submitHandler={personalSubmitHandler} />}
             { activeBreadCrumb === 'Education' && <EducationForm  data={educationData} setData={setEducationData} error={error} submitHandler={educationSubmitHandler} setActiveBreadCrumb={setActiveBreadCrumb}  />}
             { activeBreadCrumb === 'Work' && <WorkForm  data={workData} setData={setWorkData} error={error} submitHandler={workSubmitHandler} setActiveBreadCrumb={setActiveBreadCrumb}  />}

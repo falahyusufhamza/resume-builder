@@ -9,6 +9,7 @@ import ThemeContext from './theme/ThemeContext';
 import Theme from './theme/theme';
 import ViewResume from './pages/ViewResume';
 import PrintResume from './components/PrintResume';
+import Templates from './pages/Templates';
 
 
 function App() {
@@ -29,6 +30,11 @@ function App() {
           exact
           path={'/view-resume'}
           component={ViewResume}
+        />
+        <Route
+          exact
+          path={'/templates'}
+          component={Templates}
         />
         <Route
           exact

@@ -16,7 +16,7 @@ let SummaryForm = (props) => {
 <Form.Row>
 <Form.Group as={Col} controlId="formGridFirstName">
 <Form.Label style={formLabel} >Summary</Form.Label>
-<Form.Control style={formInput}required value={summary} onChange={(event) => setSummary(event.target.value)} placeholder="Summary" />
+<Form.Control autoFocus style={formInput}required value={summary} onChange={(event) => setSummary(event.target.value)} placeholder="Summary" />
 </Form.Group>
 </Form.Row>
 

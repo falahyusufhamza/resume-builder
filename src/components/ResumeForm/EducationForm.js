@@ -1,7 +1,10 @@
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useContext, useEffect, useState } from 'react';
 import { Alert, Button, Card, Col, Form } from 'react-bootstrap';
 import Theme from '../../theme/theme';
 import ThemeContext from '../../theme/ThemeContext';
+import styles from './EducationForm.module.css'
 
 let EducationForm = (props) => {
     const themeContext = useContext(ThemeContext)
@@ -57,10 +60,10 @@ let EducationForm = (props) => {
             <Card.Header style={{color : Theme[themeContext.theme].lightColor}} as="h5">Enter your details</Card.Header>
             {data.map(item => {
                 return <Card style={{backgroundColor : Theme[themeContext.theme].primaryLight, padding : 10}} key={item.id}>
-                    { data.findIndex(x => x.id === item.id) !== 0 && <Card.Header> <Button onClick={() => setData(prevState => {
+                    { data.findIndex(x => x.id === item.id) !== 0 && <Card.Header style={{textAlign: 'right'}}> <FontAwesomeIcon className={styles.remove} onClick={() => setData(prevState => {
                         let arr = prevState.filter(x => x.id !== item.id)
                         return arr
-                    })} variant="danger">X</Button> </Card.Header>}
+                    })} icon={faTrash} /></Card.Header>}
             <Form.Row>
             
         <Form.Group as={Col}>

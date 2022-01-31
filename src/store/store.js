@@ -1,5 +1,8 @@
 import { createSlice,  configureStore } from '@reduxjs/toolkit'
 
+const template = {
+    template : 'default'
+};
 const userInitialState = {
     personal : {
         firstName : '',
@@ -32,13 +35,52 @@ const userInitialState = {
     
 }
 
+const templateSlice = createSlice({
+    name : 'template',
+    initialState : template,
+    reducers : {
+        switchTemplate(state,{payload}){
+            state.template  = payload.template;
+        }
+    }
+})
+
 const userSlice = createSlice({
     name : 'user',
     initialState : userInitialState,
     reducers : { 
         clearState(state){
-            state = {...userInitialState}
-        },
+            state.personal = {
+                    firstName : '',
+                    lastName : '',
+                    email : '',
+                    phoneNo : '',
+                    country : '',
+                    state :''
+                }
+
+                state.education = [
+                    {
+                        id : Math.random(),
+                        institute : '',
+                        degree : '',
+                        toDate : '',
+                        fromDate : ''
+                    }
+                ]
+                state.work =[
+                    {
+                        id : Math.random(),
+                        company : '',
+                        designation : '',
+                        toDate : '',
+                        fromDate : ''
+                    }
+                ]
+                state.summary = ''
+                state.skills  =[]
+
+            },
         updatePersonalData(state,{payload}){
             state.personal = {...payload.personal}
         },
@@ -58,9 +100,11 @@ const userSlice = createSlice({
 })
 
 export const userActions = userSlice.actions;
+export const templateActions= templateSlice.actions;
 
 const store = configureStore({reducer : {
-    userReducer : userSlice.reducer
+    userReducer : userSlice.reducer,
+    templateReducer : templateSlice.reducer
 }
 })
 

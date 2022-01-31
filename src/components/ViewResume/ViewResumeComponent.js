@@ -9,7 +9,7 @@ function ViewResumeComponent(props) {
   const themeContext = useContext(ThemeContext);
   const userState = useSelector(state => state.userReducer);
   const {firstName , lastName, email, phoneNo, state, country} = userState.personal;
-  return <div ref={props.componentRef} style={{ height :'297mm', width : '210mm',backgroundColor : 'white',borderRadius : 5,padding : 0 }} >
+  return props.template.template === 'default' &&  <div ref={props.componentRef} style={{ height :'297mm', width : '210mm',backgroundColor : 'white',borderRadius : 5,padding : 0 }} >
     <Card  style={{width  : '100%', height : '100%'}}>
     <Card.Body style={{padding : 0,margin : 0}}>
     <Row style={{height: '100%', width : '100%',padding : 10,margin :0,borderRadius : 5}}>
@@ -28,12 +28,12 @@ function ViewResumeComponent(props) {
     <div style={{height : '10%',width : '100%',marginBottom : 5}}>
     <p className={styles.subHeading} >Experience</p>
       {userState.work.map(item => <Fragment>
-        <ListGroup as="ol" numbered>
+        <ListGroup as="ul">
   <ListGroup.Item
     as="li"
     className="d-flex justify-content-between align-items-start"
   >
-    <div className="ms-2 me-auto">
+    <div key={item.id} className="ms-2 me-auto">
       <div className="fw-bold" style={{fontWeight : 'bold'}}>{item.designation}</div>
       {item.company}
     </div>
@@ -48,8 +48,9 @@ function ViewResumeComponent(props) {
     <div style={{height : '10%',width : '100%',marginBottom : 5}}>
       <p className={styles.subHeading} >Education</p>
       {userState.education.map(item =><Fragment>
-        <ListGroup as="ol" numbered>
+        <ListGroup >
   <ListGroup.Item
+    key={item.id}
     as="li"
     className="d-flex justify-content-between align-items-start"
   >
@@ -84,7 +85,7 @@ function ViewResumeComponent(props) {
     <div style={{width: '100%'}}>
       <p className={styles.subHeading}>Skills</p>
       {userState.skills.map(item => <Fragment>
-        <p >{item.label}</p>
+        <p key={item.label} >{item.label}</p>
       </Fragment> )}
     </div>
     </Col>
