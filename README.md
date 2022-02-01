@@ -2,6 +2,15 @@
 
 Access the project live on : https://falah-resume-builder.web.app
 
+# Tools Used
+A Resume Builder created using ReactJS. Includes Redux for storing resume data , React-Bootstrap as UI Library, React-router-dom for routing.Printing using React-to-print
+
+# Steps to create a resume : 
+1. Fill in your details
+2. After completion of the form, a resume with the default template will be shown.
+3. Click on 'Templates' link on the page header. You can select any template from this list.
+4. After the resume is generated, it is possible to Edit, print or clear the data. 3 icons will be available above the resume.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
