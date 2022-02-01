@@ -35,7 +35,6 @@ function App() {
           component={Templates}
         />
         <Route
-          exact
           path={'/'}
           render={() => <Redirect to='/build-resume' />}
         />

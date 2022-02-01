@@ -1,15 +1,12 @@
-import React, { Fragment, useContext } from 'react';
+import React, { Fragment } from 'react';
 import { Badge, Card, Col, ListGroup, Row } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
-import Theme from '../../../theme/theme';
-import ThemeContext from '../../../theme/ThemeContext';
 import userImage from '../../../assets/user.png'
 import styles from './TemplateTwo.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faMailBulk, faPhone } from '@fortawesome/free-solid-svg-icons';
 function TemplateTwo(props) {
 
-    const themeContext = useContext(ThemeContext);
   const userState = useSelector(state => state.userReducer);
   const {firstName , lastName, email, phoneNo, state, country} = userState.personal;
 

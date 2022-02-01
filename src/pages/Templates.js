@@ -27,8 +27,8 @@ function Templates() {
 
 
   return <div style={{height : '100%',width : '100%',margin : 0,padding : 5,backgroundColor : Theme[themeContext.theme].bgColor,display : 'flex', justifyContent : 'center'}}>
-<Carousel style={{ width : 500,paddingLeft : 50,paddingRight : 50 }}>
-  <Carousel.Item>
+<Carousel style={{width : 500,paddingLeft : 50,paddingRight : 50 }}>
+  <Carousel.Item style={{height : '70%'}}>
     <img
       className="d-block w-100"
       src={defaultTemplate}
